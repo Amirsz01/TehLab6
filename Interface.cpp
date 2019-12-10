@@ -2,7 +2,7 @@
 
 Interface::Interface()
 {
-	cout << "Вызван конструктор класса Interface" << endl;
+	cout << "Р’С‹Р·РІР°РЅ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР° Interface" << endl;
 	data = nullptr;
 	size = 0;
 }
@@ -11,7 +11,7 @@ Interface::~Interface()
 {
 	if(data)
 		delete[] data;
-	cout << "Вызван деструктор Interface" << endl;
+	cout << "Р’С‹Р·РІР°РЅ РґРµСЃС‚СЂСѓРєС‚РѕСЂ Interface" << endl;
 }
 
 void Interface::add()
@@ -22,40 +22,40 @@ void Interface::add()
 	try
 	{
 		system("CLS");
-		cout << "---------| Добавление |---------" << endl;
+		cout << "---------| Р”РѕР±Р°РІР»РµРЅРёРµ |---------" << endl;
 		Train *tmp = new Train[size + 1];
 		for (int i = 0; i < size; i++)
 		{
 			tmp[i] = data[i];
 		}
-		cout << "Введите номер поезда: ";
+		cout << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РїРѕРµР·РґР°: ";
 		getline(cin, sTmp);
 		if (sTmp.empty())
-			throw (string)"Номер поезда не может быть пустым";
+			throw (string)"РќРѕРјРµСЂ РїРѕРµР·РґР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј";
 		tmp[size].setTrainNum(sTmp);
-		cout << "Введите место прибытия поезда: ";
+		cout << "Р’РІРµРґРёС‚Рµ РјРµСЃС‚Рѕ РїСЂРёР±С‹С‚РёСЏ РїРѕРµР·РґР°: ";
 		getline(cin, sTmp);
 		if (sTmp.empty())
-			throw (string)"Место прибытия поезда не может быть пустым";
+			throw (string)"РњРµСЃС‚Рѕ РїСЂРёР±С‹С‚РёСЏ РїРѕРµР·РґР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј";
 		tmp[size].setEndPoint(sTmp);
-		cout << "Введите время отправления поезда:" << endl;
-		cout << "Часы [0-24]: ";
+		cout << "Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ РѕС‚РїСЂР°РІР»РµРЅРёСЏ РїРѕРµР·РґР°:" << endl;
+		cout << "Р§Р°СЃС‹ [0-24]: ";
 		getline(cin, sTmp);
 		iTmp = stoi(sTmp);
 		if (iTmp < 0 || iTmp > 24)
-			throw (string)"Ввод часа должен быть в диапазоне от 0 до 24!";
+			throw (string)"Р’РІРѕРґ С‡Р°СЃР° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ 0 РґРѕ 24!";
 		sTimeFormat = sTmp;
-		cout << "Минуты [0-60]: ";
+		cout << "РњРёРЅСѓС‚С‹ [0-60]: ";
 		getline(cin, sTmp);
 		iTmp = stoi(sTmp);
 		if (iTmp < 0 || iTmp > 60)
-			throw (string)"Ввод минут должен быть в диапазоне от 0 до 60!";
+			throw (string)"Р’РІРѕРґ РјРёРЅСѓС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ 0 РґРѕ 60!";
 		sTimeFormat = sTimeFormat + ":" + sTmp;
 		tmp[size].setTimeStart(sTimeFormat);
 		if (data)
 			delete[] data;
 		data = tmp;
-		cout << "Элемент успешно добавлен" << endl;
+		cout << "Р­Р»РµРјРµРЅС‚ СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅ" << endl;
 		size++;
 		system("pause");
 	}
@@ -70,24 +70,24 @@ void Interface::del()
 {
 	int index;
 	system("CLS");
-	cout << "---------| Извлечение |---------" << endl;
+	cout << "---------| РР·РІР»РµС‡РµРЅРёРµ |---------" << endl;
 	try
 	{
 		if (!size)
-			throw (string)"Нет поездов для извлечения";
+			throw (string)"РќРµС‚ РїРѕРµР·РґРѕРІ РґР»СЏ РёР·РІР»РµС‡РµРЅРёСЏ";
 		for (int i = 0; i < size; i++)
 		{
 			cout << i << ". " << data[i].getTrainNum() << endl;
 		}
-		cout << "Выберите элемент для удаления: ";
+		cout << "Р’С‹Р±РµСЂРёС‚Рµ СЌР»РµРјРµРЅС‚ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ: ";
 		cin >> index;
 		if (index < 0 || index > size-1)
-			throw (string)"Выбранного элемента не существует";
+			throw (string)"Р’С‹Р±СЂР°РЅРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚";
 		if (size == 1)
 		{
 			delete[] data;
 			data = nullptr;
-			cout << "Элемент удален успешно" << endl;
+			cout << "Р­Р»РµРјРµРЅС‚ СѓРґР°Р»РµРЅ СѓСЃРїРµС€РЅРѕ" << endl;
 			size--;
 			system("pause");
 			return;
@@ -103,7 +103,7 @@ void Interface::del()
 		delete[] data;
 		data = tmp;
 		size--;
-		cout << "Элемент удален успешно" << endl;
+		cout << "Р­Р»РµРјРµРЅС‚ СѓРґР°Р»РµРЅ СѓСЃРїРµС€РЅРѕ" << endl;
 		system("pause");
 	}
 	catch (string err)
@@ -116,15 +116,15 @@ void Interface::del()
 void Interface::sort()
 {
 	system("CLS");
-	cout << "---------| Сортировка |---------" << endl;
+	cout << "---------| РЎРѕСЂС‚РёСЂРѕРІРєР° |---------" << endl;
 	try
 	{
 		if (!size)
-			throw (string)"Нет поездов для сортировки";
+			throw (string)"РќРµС‚ РїРѕРµР·РґРѕРІ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё";
 		for (int i = 0; i < size - 1; i++) {
 			for (int j = 0; j < size - i - 1; j++) {
 				if (data[j].getEndPoint().compare(data[j + 1].getEndPoint()) > 0) {
-					swap(data[j], data[j + 1]);// меняем элементы местами
+					swap(data[j], data[j + 1]);// РјРµРЅСЏРµРј СЌР»РµРјРµРЅС‚С‹ РјРµСЃС‚Р°РјРё
 				}
 			}
 		}
@@ -138,26 +138,26 @@ void Interface::sort()
 void Interface::search()
 {
 	system("CLS");
-	cout << "---------| Поиск |---------" << endl;
+	cout << "---------| РџРѕРёСЃРє |---------" << endl;
 	try
 	{
 		if (!size)
-			throw (string)"Нет поездов для поиска";
-		string sTime; // Время
-		string sTimeFormat; // Время
-		bool empty = false; // Флаг пустоты вывода
+			throw (string)"РќРµС‚ РїРѕРµР·РґРѕРІ РґР»СЏ РїРѕРёСЃРєР°";
+		string sTime; // Р’СЂРµРјСЏ
+		string sTimeFormat; // Р’СЂРµРјСЏ
+		bool empty = false; // Р¤Р»Р°Рі РїСѓСЃС‚РѕС‚С‹ РІС‹РІРѕРґР°
 		int iTime;
-		cout << "Введите часы [0-24]: ";
+		cout << "Р’РІРµРґРёС‚Рµ С‡Р°СЃС‹ [0-24]: ";
 		cin >> sTime;
 		iTime = stoi(sTime);
 		if (iTime < 0 || iTime > 24)
-			throw (string)"Ввод часа должен быть в диапазоне от 0 до 24!";
+			throw (string)"Р’РІРѕРґ С‡Р°СЃР° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ 0 РґРѕ 24!";
 		sTimeFormat = sTime;
-		cout << "Введите минуты [0-60]: ";
+		cout << "Р’РІРµРґРёС‚Рµ РјРёРЅСѓС‚С‹ [0-60]: ";
 		cin >> sTime;
 		iTime = stoi(sTime);
 		if (iTime < 0 || iTime > 60)
-			throw (string)"Ввод минут должен быть в диапазоне от 0 до 60!";
+			throw (string)"Р’РІРѕРґ РјРёРЅСѓС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ 0 РґРѕ 60!";
 		sTimeFormat = sTimeFormat + ":" + sTime;
 		for (int i = 0; i < size; i++) {
 			if (data[i].getTimeStart().compare(sTimeFormat) >= 0)
@@ -167,7 +167,7 @@ void Interface::search()
 			}
 		}
 		if (!empty)
-			cout << "По вашему запросу нет подходящих поездов!" << endl;
+			cout << "РџРѕ РІР°С€РµРјСѓ Р·Р°РїСЂРѕСЃСѓ РЅРµС‚ РїРѕРґС…РѕРґСЏС‰РёС… РїРѕРµР·РґРѕРІ!" << endl;
 	}
 	catch (string err)
 	{
@@ -178,11 +178,11 @@ void Interface::search()
 void Interface::print()
 {
 	system("CLS");
-	cout << "---------| Вывод |---------" << endl << endl;
+	cout << "---------| Р’С‹РІРѕРґ |---------" << endl << endl;
 	try
 	{
 		if (!size)
-			throw (string)"Нет поездов для вывода";
+			throw (string)"РќРµС‚ РїРѕРµР·РґРѕРІ РґР»СЏ РІС‹РІРѕРґР°";
 		for (int i = 0; i < size; i++)
 		{
 			cout << data[i] << endl;
