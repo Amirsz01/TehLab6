@@ -5,9 +5,9 @@ using namespace std;
 
 class Train
 {
-	string sEndPoint; //Названия пункта прибытия
-	string sTrainNum; //Номер поезда
-	string sTimeStart;//Время отъезда
+	string sEndPoint; //РќР°Р·РІР°РЅРёСЏ РїСѓРЅРєС‚Р° РїСЂРёР±С‹С‚РёСЏ
+	string sTrainNum; //РќРѕРјРµСЂ РїРѕРµР·РґР°
+	string sTimeStart;//Р’СЂРµРјСЏ РѕС‚СЉРµР·РґР°
 public:
 	Train();
 	Train(const Train& obj);
