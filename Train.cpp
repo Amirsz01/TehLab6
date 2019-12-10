@@ -2,16 +2,16 @@
 
 ostream& operator<<(ostream& stream, Train& obj)
 {
-	stream << "----------| Ïîåçä |-----------" << endl
-		<< "Ïóíêò íàçíà÷åíèÿ: " << obj.getEndPoint() << endl
-		<< "Íîìåð ïîåçäà: " << obj.getTrainNum() << endl
-		<< "Âðåìÿ îòïðàâëåíèÿ: " << obj.getTimeStart() << endl;
+	stream << "----------| ÐŸÐ¾ÐµÐ·Ð´ |-----------" << endl
+		<< "ÐŸÑƒÐ½ÐºÑ‚ Ð½Ð°Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ: " << obj.getEndPoint() << endl
+		<< "ÐÐ¾Ð¼ÐµÑ€ Ð¿Ð¾ÐµÐ·Ð´Ð°: " << obj.getTrainNum() << endl
+		<< "Ð’Ñ€ÐµÐ¼Ñ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ñ: " << obj.getTimeStart() << endl;
 	return stream;
 }
 
 Train::Train()
 {
-	cout << "Âûçâàí êîíñòðóêòîð Train" << endl;
+	cout << "Ð’Ñ‹Ð·Ð²Ð°Ð½ ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Train" << endl;
 	sEndPoint = "";
 	sTrainNum = "";
 	sTimeStart = "";
@@ -19,7 +19,7 @@ Train::Train()
 
 Train::Train(const Train& obj)
 {
-	cout << "Âûçâàí êîíñòðóêòîð êîïèðîâàíèÿ Train" << endl;
+	cout << "Ð’Ñ‹Ð·Ð²Ð°Ð½ ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ Train" << endl;
 	sEndPoint = obj.sEndPoint;
 	sTrainNum = obj.sTrainNum;
 	sTimeStart = obj.sTimeStart;
@@ -27,7 +27,7 @@ Train::Train(const Train& obj)
 
 Train::~Train()
 {
-	cout << "Âûçâàí äåñòðóêòîð Train" << endl;
+	cout << "Ð’Ñ‹Ð·Ð²Ð°Ð½ Ð´ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ Train" << endl;
 }
 
 void Train::setEndPoint(string _sEndPoint)
